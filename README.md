@@ -2,6 +2,8 @@
 
 Layer3 Authentication System is an innovative and highly secure authentication method designed to provide enhanced security for user accounts and systems. This system goes beyond traditional username and password authentication and even Two-Factor Authentication (2FA). 3FA leverages the power of images and patterns to create a triple-layered security approach, making it exceptionally difficult for unauthorized access.
 
+![Diagram](materials/Diagram.png)
+
 ## Features
 
 - **Triple-Layered Security:** Extra layer of security beyond the traditional username and password combination or even two-factor authentication (2FA),This innovative system leverages the power of images and patterns to create a highly secure method.
