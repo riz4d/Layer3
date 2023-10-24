@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Authentication</title>
+    {% load static %}
+    <link href="{% static 'css/2fa.css'%}" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+   </head>
+   <body>
+     <div class="container">
+       <header>
+         <i class="bx bxs-check-shield"></i>
+       </header>
+       <h4>Enter OTP Code</h4>
+       <form action="" method="POST">
+        {% csrf_token %}
+         <div class="input-field">
+           <input type="number" name="first"/>
+           <input type="number" name="second" disabled />
+           <input type="number" name="third" disabled />
+           <input type="number" name="fourth" disabled />
+           <input type="number" name="fifth" disabled />
+         </div>
+         <button type="submit">Verify OTP</button>
+       </form>
+     </div>
+   </body>
+<script src="{% static 'js/2fa.js'%}"></script>
+</html>

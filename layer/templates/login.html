@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Student Portal</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    
+    <link rel="shortcut icon" href="{% static 'images/fav.ico'%}" type="image/x-icon">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <!-- ALL CSS FILES -->
+    <link href="{% static 'css/materialize.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/style-mob.css'%}" rel="stylesheet" />
+</head>
+<style>
+    .errmsg{
+        font-style: italic;
+        color: red;
+    }
+</style>
+<body>
+
+    <section>
+		<div class="ad-log-main">
+			<div class="ad-log-in">
+				
+				<div class="ad-log-in-con">
+			<div class="log-in-pop-right">
+                    <h4>User Login</h4>
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p class="errmsg">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    <form class="s12" method="POST">
+                        {% csrf_token %}
+                        {% load widget_tweaks %}
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.userid type="text" data-ng-model="name" class="validate" placeholder="Phone Number"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.passwd type="password" class="validate" placeholder="Password"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="s12 log-ch-bx">
+                                <p>
+                                    <input type="checkbox" id="test5">
+                                    <label for="test5">Remember me</label>
+                                </p><br>
+                            </div>
+                            <div class="s12 log-ch-bx">
+                                <p class="pass"><a href="signup">I don't have account!!</a></p>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <div>
+                            <div class="input-field s4">
+                                <i class="waves-effect waves-light log-in-btn waves-input-wrapper"><input type="submit" value="Login" class="waves-button-input"></i>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+				</div>
+			</div>
+		</div>
+   </section>
+</body>
+
+</html>

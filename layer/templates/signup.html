@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>User-Signup</title>
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/fav.ico'%}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link href="{% static 'css/materialize.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/style-mob.css'%}" rel="stylesheet" />
+</head>
+
+<body>
+
+    <section>
+		<div class="ad-log-main">
+			<div class="ad-log-in">
+				
+				<div class="ad-log-in-con">
+			<div class="log-in-pop-right">
+                    <h4>Create User</h4>
+                    <br>
+                    <form action="" class="s12" method="POST">
+                        {% csrf_token %}
+                        {% load widget_tweaks %}
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.firstnm type="text" data-ng-model="name" class="validate" placeholder="First Name"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.lastnm type="text" data-ng-model="name" class="validate" placeholder="Last Name"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.userid type="number" data-ng-model="name" class="validate" placeholder="Phone Number"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.email type="email" data-ng-model="name" class="validate" placeholder="Email"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s12">
+                                {% render_field form.passwd type="password" class="validate" placeholder="Password"%}
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="s12 log-ch-bx">
+                                <br>
+                            </div>
+                            <div class="s12 log-ch-bx">
+                                <p class="pass"><a href="/">I have a account!!</a></p>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <div>
+                            <div class="input-field s4">
+                                <i class="waves-effect waves-light log-in-btn waves-input-wrapper"><input type="submit" value="Create" class="waves-button-input"></i>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+				</div>
+			</div>
+		</div>
+   </section>
+</body>
+
+</html>

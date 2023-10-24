@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer3 Authentication</title>
+    {% load static %}
+    <style>
+        body{
+            background-color: #ffffff;
+        }
+        h2{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding-left: 25px;
+        }
+        .captcha-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .captcha-piece {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: #18aae4;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 160px;
+          }
+          
+          .btn:hover {
+            background: #18aae4;
+          }
+          .buttonbtn{
+            text-align: center;
+            padding-top: 20px;
+          }
+          .sec{
+            padding: 10%;
+          }
+          .errmsg{
+            font-style: italic;
+            color: red;
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sec">
+        <h2>Layer3 Authentication</h2>
+        {% if messages %}
+            {% for message in messages %}
+            <p class="errmsg">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="POST" id="captcha-form">
+            {% csrf_token %}
+            <div class="captcha-container" id="captcha-container"></div>
+            <input type="hidden" id="passphrase" name="passphrase">
+            <input type="hidden" id="selected-order">
+            <div class="buttonbtn">
+                <button class="btn" type="submit">Verify</button>
+            </div>
+
+        </form>
+    </div>
+    
+    <script>
+        const originalOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let selectedImages = [];
+        function generateCaptcha() {
+            selectedImages = []; 
+            const captchaContainer = document.getElementById("captcha-container");
+            captchaContainer.innerHTML = "";
+            originalOrder.sort(() => Math.random() - 0.5);
+            for (let i = 0; i < originalOrder.length; i++) {
+                const piece = document.createElement("img");
+                piece.classList.add("captcha-piece");
+                piece.src = "{% static 'img/'%}" + originalOrder[i] + ".png";// Replace with your image paths
+                piece.dataset.order = originalOrder[i];
+                piece.dataset.selected = "false";
+                piece.addEventListener("click", () => toggleImage(piece));
+                captchaContainer.appendChild(piece);
+            }
+        }
+
+        function toggleImage(image) {
+            const order = parseInt(image.dataset.order);
+            const index = selectedImages.indexOf(order);
+
+            if (index === -1) {
+                selectedImages.push(order);
+                image.dataset.selected = "true";
+                image.style.border = "2px solid #00F";
+            } else {
+                selectedImages.splice(index, 1);
+                image.dataset.selected = "false";
+                image.style.border = "1px solid #000";
+            }
+
+            updateSelectedOrder();
+        }
+
+        function updateSelectedOrder() {
+            var inputElement = document.getElementById("passphrase");
+            const selectedOrderSpan = document.getElementById("selected-order");
+            selectedOrderSpan.textContent = selectedImages.join(", ");
+            inputElement.value = selectedOrderSpan.textContent
+
+        }
+        function checkCaptcha() {
+            if (JSON.stringify(selectedImages) === JSON.stringify(originalOrder)) {
+                alert("CAPTCHA solved correctly!");
+            } else {
+                alert("CAPTCHA solved incorrectly. Please try again.");
+                generateCaptcha();
+            }
+        }
+        
+        // Generate the initial CAPTCHA
+        generateCaptcha();
+    </script>
+</body>
+</html>
