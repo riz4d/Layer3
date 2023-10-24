@@ -13,7 +13,11 @@ Layer3 Authentication System is an innovative and highly secure authentication m
 - **User-Friendly Authentication:** Despite its advanced security, Users can select and interact with images and patterns that are meaningful to them, enhancing the usability of the system.
 
 - **Diverse Authentication Factors:** Layer3 Authentication incorporates a diverse range of authentication factors, making it harder for attackers to compromise an account.
+## Configs
 
+- Firebase Database Credentials
+- Twilio Credentials
+  
 ## Usage
 
 1. Clone this repository to your local machine.
