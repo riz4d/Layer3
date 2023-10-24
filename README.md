@@ -14,7 +14,7 @@ Layer3 Authentication System is an innovative and highly secure authentication m
 
 - **Diverse Authentication Factors:** Layer3 Authentication incorporates a diverse range of authentication factors, making it harder for attackers to compromise an account.
 
-## Getting Started
+## Usage
 
 1. Clone this repository to your local machine.
 ```
@@ -39,6 +39,10 @@ python3 manage.py runserver
 ```
 127.0.0.1:8000
 ```
+
+### License
+
+This project is licensed under [MIT License](LICENSE).
 
 
 
