@@ -7,5 +7,5 @@ tzdata==2022.1
 Pyrebase4==4.7.1
 django-widget-tweaks
 psycopg2-binary==2.9.6
-Pyrebase4==4.7.1
+requests==2.29.0
 twilio
