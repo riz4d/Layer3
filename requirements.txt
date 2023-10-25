@@ -4,8 +4,8 @@ djangorestframework==3.13.1
 pytz==2022.1
 sqlparse==0.4.2
 tzdata==2022.1
-requests
+Pyrebase4==4.7.1
 django-widget-tweaks
 psycopg2-binary==2.9.6
-Pyrebase4
+Pyrebase4==4.7.1
 twilio
