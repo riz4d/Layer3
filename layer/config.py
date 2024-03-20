@@ -1,12 +1,12 @@
 # Firebase Credentials
 firebase_config = {
-    "apiKey": "",
-    "authDomain": "",
-    "databaseURL": "",
-    "projectId": "",
-    "storageBucket": "",
-    "messagingSenderId": "",
-    "appId": ""
+    "apiKey": "AIzaSyC1Jidait6aozV7UWCZpQPmQFiuhmjqMng",
+    "authDomain": "threelayerotp.firebaseapp.com",
+    "databaseURL": "https://threelayerotp-default-rtdb.firebaseio.com",
+    "projectId": "threelayerotp",
+    "storageBucket": "threelayerotp.appspot.com",
+    "messagingSenderId": "607041455372",
+    "appId": "1:607041455372:web:38936741846b91fafb3529"
 
 }
 
