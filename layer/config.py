@@ -14,6 +14,6 @@ firebase_config = {
 keys = ['qOB07W', 'IsiVXa', 'b9u8CY', 'v14u0s', 'LIpe33', 'ZKfgbf', 'vBQjwv', 'oXCWbO', 'sJV3Qc']
 
 # Twilio Credentials
-account_sid = ''
-auth_token = ''
-registered_twilio_number = ""
+account_sid = 'SK57b2d8177b126457e18d78e65b6bd901'
+auth_token = 'RXKnQJdHA4FALGVm0EQ9iMKogXH4bFrp'
+registered_twilio_number = "+18777804236"
